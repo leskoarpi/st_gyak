@@ -197,55 +197,6 @@ with st.spinner('Loading...'):
     st_data = folium_static(m, height = 370)
 
 
-# Function to generate a random word for the game
-def generate_random_word():
-    word_list = ["apple", "banana", "orange", "grape", "lemon", "melon", "peach"]
-    return random.choice(word_list)
-
-# Function to check the guess against the target word
-def check_guess(target_word, guess):
-    if len(guess) != len(target_word):
-        return "Invalid guess! Please enter a word with the correct length."
-    
-    result = ""
-    for i in range(len(target_word)):
-        if guess[i] == target_word[i]:
-            result += guess[i].upper()  # Correct letter in the correct position
-        elif guess[i] in target_word:
-            result += guess[i].lower()  # Correct letter in the wrong position
-        else:
-            result += "-"  # Letter not in the word
-    return result
-
-# Streamlit app
-def wordle_game():
-    st.title("Wordle Game")
-
-    target_word = generate_random_word()
-    guesses = []
-    attempts = 0
-    max_attempts = 6
-
-    st.write("Guess the 5-letter word:")
-
-    while attempts < max_attempts:
-        guess = st.text_input(f"Attempt {attempts + 1}")
-        if st.button("Check"):
-            if guess.lower() == target_word:
-                st.success("Congratulations! You guessed the word!")
-                break
-            
-            result = check_guess(target_word, guess.lower())
-            guesses.append((guess, result))
-            attempts += 1
-            
-            st.write(f"Attempt {attempts}: {result}")
-
-    if attempts == max_attempts:
-        st.error(f"Out of attempts! The word was {target_word.upper()}")
-
-if __name__ == "__main__":
-    wordle_game()
        
     # Concluding remarks
     st.write('Weather data source: [http://open-meteo.com](http://open-meteo.com) \n\n'+
