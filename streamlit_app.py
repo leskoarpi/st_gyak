@@ -196,7 +196,6 @@ with st.spinner('Loading...'):
     # Display map
     st_data = folium_static(m, height = 370)
 
-    mport random
 
 # Function to generate a random word for the game
 def generate_random_word():
