@@ -32,9 +32,9 @@ from streamlit_folium import folium_static
 
 
 # Title and description for your app
-st.title("How's the weather? :sun_behind_rain_cloud:")
+st.title("Milyen az időjaras odakünn? :sun_behind_rain_cloud:")
 
-st.subheader("Choose location")
+st.subheader("válassz egy térséget")
 
 file = "worldcities.csv"
 data = pd.read_csv(file)
